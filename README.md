@@ -11,6 +11,6 @@
 ## What am I going to learn?
 * **Php**
 * **MySql**
-* **Node.js, Express.js MongoDB, Mongoose** *(optional, self development)* 
+* **Node.js, Express.js MongoDB, Mongoose** *(optional, self development)* [course](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/)
 * **Vue.js** *(optional, self development)* 
 
