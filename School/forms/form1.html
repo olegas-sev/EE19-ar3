@@ -8,13 +8,24 @@
     
 </head>
 <body>
-    <div class="container-sm">
+    <div class="container">
         <h1>Ett formubaba</h1>
-        <form action="">
-            <label>Namn</label>
-            <input class="form-control" type="text">
-            <button class="btn btn-primary">Skicka</button>
+        <form action="spara.php" method="POST">
+            <div class="mb-3">
+                <label>Namn</label>
+                <input class="form-control" type="text" name="namn">
+            </div>
+            <div class="mb-3">
+                <label>Mejl-adress</label>
+                <input class="form-control" type="email" name="mail">
+            </div>
+            <div class="mb-3">
+                <label>Telefon nummer</label>
+                <input class="form-control" type="number" name="mobil">
+            </div>
+            <button class="btn btn-primary" type="submit">Skicka</button>
         </form>
+
     </div>
 </body>
 </html>
