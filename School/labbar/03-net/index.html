@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nät inställningar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kontainer">
+        <h1 class="display-4">Nät inställningar</h1>
+        </nav>
+        <form class="kol2" action="backend.php" method="POST">
+            <label>Ange ip</label>
+            <input type="text" name="ip" placeholder="192.168.0.0" required>
+            <label>Ange subnetmask</label>
+            <textarea name="subnetmask" placeholder="255.255.255.0" required></textarea>
+            <label>Ange default gateway</label>
+            <input type="text" name="dg" required placeholder="192.168.0.0">
+            <button class="primary">Spara</button>
+        </form>
+    </div>
+</body>
+</html>
