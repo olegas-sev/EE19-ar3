@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F9F6EB;
+}
+.kontainer {
+    width: 600px;
+    padding: 2em;
+    margin: 3em auto;
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 12px #f0e9d1;
+    color: #4e4e4e;
+}
+
+.kol3 {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+}
+
+.kol {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
