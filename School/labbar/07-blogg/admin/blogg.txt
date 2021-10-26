@@ -1,0 +1,19 @@
+
+    <p>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Inlägg</div>
+  <div class="card-body">
+  <h4 class="card-title">Mikael</h4>
+  <p class="card-text">Gillar programmera, väldigt lat och äter fläsk</p>
+  </div>
+</div>    
+    
+    <p>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Inlägg</div>
+  <div class="card-body">
+  <h4 class="card-title">Luciano</h4>
+  <p class="card-text">Gillar programmera, fotboll och spelar mycket genshin impact</p>
+  </div>
+</div>    
+    
