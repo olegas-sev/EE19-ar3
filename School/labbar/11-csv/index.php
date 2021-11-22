@@ -19,14 +19,24 @@
         <?php
             $fileName = filter_input(INPUT_POST, "filnamn", FILTER_SANITIZE_STRING);
             if ($fileName) {
-                $rader = file($fileName);
-                echo "<p>Läser filen..</p>";
-                echo "<table>";
-                echo "<tr><th>Restaurang</th></tr>";
+                if (file("$fileName.csv")) {
+                $rader = file("$fileName.csv");
+
+                // var_dump($rader);
+                // echo "<p>Läser filen..</p>";
+                echo "<table class=\"table\">";
+                echo "<thead><tr><th scope=\"col\">#</th><th scope=\"col\">Restaurang</th><th scope=\"col\">Gata</th><th scope=\"col\">Postnummer</th><th scope=\"col\">Stad</th></tr></thead><tbody>";
                     foreach ($rader as $nr => $rad) {
-                        echo $rad;
+                        $radArr = explode(',', $rad);
+                        echo "<tr><th scope=\"row\">$nr</th><td>$radArr[0]</td><td>$radArr[1]</td><td>$radArr[2]</td><td>$radArr[3]</td></tr>";
                     }
-                echo "</table>";
+                echo "</tbody></table>";
+                } else {
+                    echo "
+                    <div class=\"alert alert-warning\" role=\"alert\">
+                    File was not found!
+                    </div>";
+                }
             }
         ?>
     </div>
