@@ -1,53 +1,23 @@
-// Dependencies
-const jwt = require('jsonwebtoken')
+// Express
 const express = require('express')
-require('dotenv').config()
-
-// Express app
 const app = express()
-// Body json parser
+// .env
+const dotenv = require('dotenv')
+dotenv.config()
+// DB
+const mongoose = require('mongoose')
+// Routes
+const authRoute = require('./routes/auth')
+const postRoute = require('./routes/posts')
+
+// Connect to DB
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+  console.log('Connected to db')
+})
+
+// Middlewares
 app.use(express.json())
+app.use('/api/user', authRoute)
+app.use('/api/posts', postRoute)
 
-const posts = [
-  {
-    username: 'Olegas',
-    title: 'League of Legends',
-  },
-  {
-    username: 'Maram',
-    title: 'Mobile Legends',
-  },
-]
-
-app.get('/posts', authenticateToken, (req, res) => {
-  res.json(
-    posts.filter((post) => {
-      return post.username === req
-    })
-  )
-})
-
-app.post('/login', (req, res) => {
-  // Auth user
-  const username = req.body.username
-  const user = {
-    name: username,
-  }
-
-  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-  res.json({ accessToken: accessToken })
-})
-
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-  if (token == null) return res.sendStatus(401)
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403)
-    req.user = user
-    next()
-  })
-}
-
-app.listen(3000)
+app.listen(3000, () => console.log('Server running.'))
