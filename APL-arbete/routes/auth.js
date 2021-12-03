@@ -1,15 +1,17 @@
 // Imorts
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
+const bodyParser = require('body-parser')
 // Init
 const router = require('express').Router()
 const User = require('../model/User')
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Validators
 const { registerValidation, loginValidation } = require('../validation')
+// Static
 
-router.post('/register', async (req, res) => {
+router.post('/register', urlencodedParser, async (req, res) => {
   // Data validation
   const { error } = registerValidation(req.body)
   if (error) return res.status(400).send(error.details[0].message)
@@ -32,13 +34,17 @@ router.post('/register', async (req, res) => {
 
   try {
     const savedUser = await user.save()
-    res.send(savedUser)
+    res.render('register-success')
   } catch (err) {
     res.status(400).send(err)
   }
 })
 
-router.post('/login', async (req, res) => {
+router.get('/register', (req, res) => {
+  res.render('register')
+})
+
+router.post('/login', urlencodedParser, async (req, res) => {
   const { error } = loginValidation(req.body)
   if (error) return res.status(400).send(error.details[0].message)
 
@@ -51,7 +57,17 @@ router.post('/login', async (req, res) => {
 
   // JWT
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET)
-  res.header('auth-token', token).send(token)
+  res.cookie('auth-token', token).redirect('/')
+})
+
+router.get('/login', (req, res) => {
+  res.render('login')
+})
+
+router.get('/logout', (req, res) => {
+  res.clearCookie('auth-token')
+  console.log(req.headers)
+  res.redirect('/')
 })
 
 module.exports = router

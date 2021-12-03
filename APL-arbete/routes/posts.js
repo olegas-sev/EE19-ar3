@@ -1,15 +1,9 @@
 const router = require('express').Router()
 const verify = require('./verifyToken')
-
-router.get('/', verify, (req, res) => {
-  res.json({
-    posts: [
-      {
-        title: 'Post 1',
-        description: 'Random data u shouldnt have access to',
-      },
-    ],
-  })
+const User = require('../model/User')
+const jwt = require('jsonwebtoken')
+router.get('/posts', verify, (req, res) => {
+  res.render('posts', req.body)
 })
 
 module.exports = router

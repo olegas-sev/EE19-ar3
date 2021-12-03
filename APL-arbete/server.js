@@ -1,6 +1,14 @@
 // Express
 const express = require('express')
 const app = express()
+const path = require('path')
+// Register view engine
+app.set('view engine', 'ejs')
+// Static
+app.use(express.static(path.join(__dirname, 'public')))
+// Cookies
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
 // .env
 const dotenv = require('dotenv')
 dotenv.config()
@@ -18,6 +26,10 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 // Middlewares
 app.use(express.json())
 app.use('/api/user', authRoute)
-app.use('/api/posts', postRoute)
+app.use('/', postRoute)
+
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 app.listen(3000, () => console.log('Server running.'))
