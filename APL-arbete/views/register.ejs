@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container py-3">
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <span class="fs-4">JWT Auth MongoDB</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/posts">Posts</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/api/user/login">Sign In</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/api/user/register">Sign up</a>
+        </nav>
+      </div>
+
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">JWT Auth</h1>
+        <p class="fs-5 text-muted">Built by Olegas S ❤️</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="mb-3 text-center d-flex justify-content-center">
+        <form class="w-50" method="POST" action="/api/user/register">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="form-text">The name other users will see.</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

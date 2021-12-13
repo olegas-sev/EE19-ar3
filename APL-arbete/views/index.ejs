@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+</head>
+<body>
+  <div class="container py-3">
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <span class="fs-4">JWT Auth MongoDB</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/posts">Posts</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/api/user/login">Sign In</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/api/user/register">Sign up</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="/api/user/logout">Log out</a>
+        </nav>
+      </div>
+
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">JWT Auth</h1>
+        <p class="fs-5 text-muted">Built by Olegas S ❤️</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Posts</h4>
+            </div>
+            <div class="card-body">
+              <a href="/posts" class="w-100 btn btn-lg btn-outline-primary">See posts</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Don't have account?</h4>
+            </div>
+            <div class="card-body">
+              <a href="/api/user/register" class="w-100 btn btn-lg btn-primary">Register</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3 ">
+              <h4 class="my-0 fw-normal">Already a member?</h4>
+            </div>
+            <div class="card-body">
+              <a href="/api/user/login" class="w-100 btn btn-lg btn-primary">Sign in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+  </div>
+</body>
+</html>
