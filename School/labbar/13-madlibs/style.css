@@ -13,17 +13,17 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 body {
-    background: #F9F6EB;
+    background: url("./bg.jpg") no-repeat;
 }
 .kontainer {
     width: 600px;
     padding: 2em;
-    margin: 3em auto;
-    background: #fff;
+    margin: 20em 70em 0px 70em;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     font-family: 'Source Sans Pro', sans-serif;
     border: 1px solid #ddd;
-    box-shadow: 0 0 12px #f0e9d1;
+    box-shadow: 0 0 12px #2ed573;
     color: #4e4e4e;
 }
 .kol2 {
@@ -65,10 +65,10 @@ button {
     border: none;
     font-weight: bold;
     color: #FFF;
-    background-color: #55a5d2;
+    background-color: #2ed573;
 }
 h1, h2, h3 {
-    color: #9c813d;
+    color: #2ed573;
 }
 h1, h2, h3, p {
     margin: 0.5em 0;
@@ -76,7 +76,6 @@ h1, h2, h3, p {
 h3 {
     margin-top: 2em;
 }
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -111,4 +110,8 @@ form label {
 }
 form span {
     padding: 10px;
+}
+
+.madlibs {
+    font-size: 25px;
 }

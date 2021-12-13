@@ -10,17 +10,19 @@
 <body>
     <div class="kontainer">
         <h1 class="display-4">Madlibs</h1>
-        <form class="kol2" action="login.php" method="POST">
-            <label>Vad heter du?</label>
-            <input type="text" name="namn" required>
-            <label>Var bor du?</label>
-            <input type="text" name="bostad" required>
-            <label>Hur lång är du?</label>
-            <input type="text" name="längd" required>
-            <label>Skriv ett adjektiv</label>
-            <input type="text" name="adjektiv" required>
-            <label>Vad gillar du för mat?</label>
-            <input type="text" name="mat" required>
+        <form class="kol2" action="madlibs.php" method="POST">
+            <label>Adjective</label>
+            <input type="text" name="adjective" required>
+            <label>Verb ending with <i>ing</i></label>
+            <input type="text" name="verb" required>
+            <label>Type of food?</label>
+            <input type="text" name="food" required>
+            <label>Noun</label>
+            <input type="text" name="noun" required>
+            <label>Number</label>
+            <input type="number" name="number" required>
+            <label>Part of the body</label>
+            <input type="text" name="bodypart" required>
             <button class="primary">Skicka</button>
         </form>
     </div>
