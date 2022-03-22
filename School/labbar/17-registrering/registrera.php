@@ -1,3 +1,6 @@
+<?php
+include('konfigdb.php')
+?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -5,18 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <div class="kontainer">
+    <div class="container">
         <div>
             <h1>Bloggen</h1>
             <nav>
 
             </nav>
             <main>
-                <form action="registrera-db.php" method="post">
+                <form action="registrera.php" method="post" class="mb-2">
                     <div class="row mb-3">
                         <label for="namn" class="col-sm-2 col-form-label">Namn</label>
                         <div class="col-sm-10">
@@ -39,6 +42,53 @@
 
                     <button type="submit" class="btn btn-primary">Skapa konto</button>
                 </form>
+                <?php
+                // Ta emot data från formuläret
+                $name = filter_input(INPUT_POST, "namn");
+                $email = filter_input(INPUT_POST, "emejl");
+                $password = filter_input(INPUT_POST, "lösenord");
+
+
+                if ($name and $email and $password) {
+                    // var_dump($name, $email, $password);
+
+                    // Kolla att användarnamnet eller email inte redan används
+                    $sql = "SELECT * FROM register WHERE namn = '$name' OR epost = '$email'";
+
+                    $resultatCheck = $conn->query($sql);
+
+                    // Hittar vi samma?
+                    if ($resultatCheck->num_rows > 0) {
+                        echo ("
+                <div class=\"alert alert-warning\" role=\"alert\">
+                  Användarnamn eller emejl används redan!
+                </div>
+                ");
+                    } else {
+
+
+                        // Räkna fram ett hash på lösenordet
+                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                        // 1. SQL-Kommandon
+                        $sql = "INSERT INTO register (namn, epost, hash) VALUES ('$name', '$email', '$hash')";
+
+                        // 2. Kör SQL
+                        $resultat = $conn->query($sql);
+
+                        // 3. Funkade SQL-kommandon?
+                        if (!$resultat) {
+                            die("Något gick fel");
+                        } else {
+                            echo ("
+                <div class=\"alert alert-success\" role=\"alert\">
+                  Användaren <b>$name</b> är skappat!
+                </div>
+                ");
+                        }
+                    }
+                }
+
+                ?>
             </main>
         </div>
     </div>
