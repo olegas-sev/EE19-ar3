@@ -5,8 +5,6 @@ session_start();
 if (!isset($_SESSION['inloggad'])) {
   $_SESSION['inloggad'] = false;
 }
-$_SESSION['inloggad'] = false;
-
 ?>
 <!DOCTYPE html>
 <html lang="sv">
@@ -24,9 +22,9 @@ $_SESSION['inloggad'] = false;
             <?php
             include('./components/navbar.php')
             ?>
-            <div class="alert alert-warning" role="alert">
-                <h3>You logged out!</h3>
-            </div>
+            <h1>Admin</h1>
+            <main>
+            </main>
         </div>
     </div>
 </body>

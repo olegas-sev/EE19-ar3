@@ -1,6 +1,10 @@
 <?php
 include('konfigdb.php');
 session_start();
+
+if (!isset($_SESSION['inloggad'])) {
+    $_SESSION['inloggad'] = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="sv">
@@ -16,35 +20,9 @@ session_start();
 <body>
     <div class="container">
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between p-3">
-                <ul class="nav nav-pills">
-                    <?php
-                    if (!$_SESSION['inloggad'] == true) {
-                        echo "
-                      <li class=\"nav-item\">
-                        <a class=\"nav-link active\" aria-current=\"page\" href=\"./logga-in.php\">Inloggning</a>
-                    </li>
-                      ";
-                    }
-                    ?>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./registrera.php">Registrera</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php
-                                            if (!$_SESSION['inloggad'] == true) {
-                                                echo "disabled";
-                                            }
-                                            ?>" href=" ./logga-ut.php">Log out</a>
-                    </li>
-                </ul>
-                <?php
-                if ($_SESSION['inloggad'] == true) {
-                    echo "<div>Inloggad</div>";
-                }
-                ?>
-            </nav>
+            <?php
+            include('./components/navbar.php')
+            ?>
             <h1>Registrera sig</h1>
 
             <main>
