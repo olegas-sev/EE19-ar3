@@ -1,0 +1,96 @@
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-background: rgb(41, 41, 41);
+    --dark-surface: rgb(18, 18, 18);
+    --dark-surface-secondary: rgb(32, 32, 32);
+    --text-default: white;
+    --brand-primary: #FF7597;
+    --brand-secondary: #FF0266;
+    --focus-bg: hsl(345, 92%, 65%);
+    --focus-border: hsl(345, 93%, 63%);
+}
+
+.divider h1, main {
+    margin-left: 20px;
+}
+
+.divider h1 {
+    color: var(--brand-primary);
+}
+
+body {
+    background: var(--dark-background);
+    color: var(--text-default);
+    margin: 10px;
+}
+
+.divider {
+    width: 100%;
+    padding: 20px 0px;
+    background: var(--dark-surface-secondary);
+    margin: 20px 0px;
+}
+
+.container-sm {
+    background: var(--dark-surface);
+    border-radius: 6px;
+    padding: 20px 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.modal {
+    color: black;
+}
+
+main * {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+}
+
+.btn-primary:hover {
+    background-color: var(--focus-bg) !important;
+    border-color: var(--focus-border) !important;
+}
+
+.btn-primary:focus {
+    background-color: var(--focus-bg) !important;
+    border-color: var(--focus-bg) !important;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    box-shadow: 0 0 0 0.25rem rgb(255 117 151 / 50%) !important;
+}
+
+.post {
+    background-color: var(--dark-surface-secondary);
+    padding: 10px;
+    max-width: 50%;
+    border-radius: 6px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.joke {
+    font-size: 18px;
+}
