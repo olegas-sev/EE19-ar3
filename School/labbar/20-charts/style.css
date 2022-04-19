@@ -1,0 +1,8 @@
+.chart-container {
+  display: flex;
+  align-items: center;
+}
+
+#myChart {
+  max-height: 400px;
+}
